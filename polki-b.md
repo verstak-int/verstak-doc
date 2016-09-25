@@ -5,7 +5,7 @@
 
 // Компонент реализуется с помощью обычной функции на ПХП.
 // `$param` — массив параметров компонента
-function Component($param=array(''))
+function TextCounter($param=array(''))
 {
 	
 	// компонент должен уметь работать и без переданных параметров
@@ -24,7 +24,7 @@ function Component($param=array(''))
 
 		// свойство, в которое передаётся
 		// содержимое нестандартного тега
-		'blockContent' => 'Текст блока «Component»'
+		'blockContent' => 'Текст блока «TextCounter»'
 	);
 
 	// массивы с переданными и предустановленными
@@ -37,23 +37,23 @@ function Component($param=array(''))
 	if ($options['type'] === 'main') {?>
 
 		<!-- так использовать переменные в разметке -->
-		<<?=$options['tag']?> class="Component <?=$options['mod']?>" <?=$options['attr']?>>
+		<<?=$options['tag']?> class="TextCounter <?=$options['mod']?>" <?=$options['attr']?>>
 
-			<input type="text" class="Component__input" value="<?=$options['tag']?>">
+			<input type="text" class="TextCounter__input" value="<?=$options['value']?>">
 
-			<span class="Component__сontrols">
-				<span class="Component__сontrol Component__сontrol--more" tabindex="0">Больше</span>
-				<span class="Component__сontrol Component__сontrol--less" tabindex="0">Меньше</span>
+			<span class="TextCounter__сontrols">
+				<span class="TextCounter__сontrol TextCounter__сontrol--more" tabindex="0">Больше</span>
+				<span class="TextCounter__сontrol TextCounter__сontrol--less" tabindex="0">Меньше</span>
 			</span>
 
 			<!-- внутри компонентов можно использовать другие компоненты -->
-			<th-b data-b="subComponent" data-param='{
+			<th-b data-b="subTextCounter" data-param='{
 				"value": "12"
 			}'></th-b>
 
 			<!-- добавление содержимого по условию -->
 			<?php if ($options['recalculate'] === true): ?>
-				<button class="Component__recalculate" type="submit">Пересчитать</button>
+				<button class="TextCounter__recalculate" type="submit">Пересчитать</button>
 			<?php endif; ?>
 						
 			<!-- здесь выводится содержимое -->
@@ -70,11 +70,11 @@ function Component($param=array(''))
 // нет подсветки кода
 // сложно подменять содержимое
 $html =	<<<EOL
-	<%tag% class="Component %mod%" %attr%>
-		<input type="text" class="Component__input" value="%value%">
-		<span class="Component__сontrols">
-			<span class="Component__сontrol Component__сontrol--more" tabindex="0">Больше</span>
-			<span class="Component__сontrol Component__сontrol--less" tabindex="0">Меньше</span>
+	<%tag% class="TextCounter %mod%" %attr%>
+		<input type="text" class="TextCounter__input" value="%value%">
+		<span class="TextCounter__сontrols">
+			<span class="TextCounter__сontrol TextCounter__сontrol--more" tabindex="0">Больше</span>
+			<span class="TextCounter__сontrol TextCounter__сontrol--less" tabindex="0">Меньше</span>
 		</span>
 		%recalculate%
 		%blockContent%
@@ -83,7 +83,7 @@ EOL;
 		
 		// подмена содержимого может происходить так
 		if ($options['recalculate'] === true) {
-			$options['recalculate'] = '<button class="Component__recalculate" type="submit">Пересчитать</button>';
+			$options['recalculate'] = '<button class="TextCounter__recalculate" type="submit">Пересчитать</button>';
 		}
 		else {
 			$options['recalculate'] = '';
