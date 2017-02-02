@@ -23,7 +23,7 @@
 
 ```php
 <?=b('counter', array(
-	"value": "12"
+	"value" => "12"
 ))?>
 ```
 

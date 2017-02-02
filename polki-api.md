@@ -6,7 +6,7 @@
 При запросе с полочных страниц не указывайте адрес, на который производится запрос:
 
 ```js
-$.post('', {
+$.post(location.href.replace(location.search, ''), {
 	b: 'FancyContent',
 	param: {
 		'type': 'terms'
@@ -21,7 +21,7 @@ $.post('', {
 Запрос с произвольной страницы делайте на страницу с Полками. Остальное так же:
 
 ```js
-$.post('http://some.samsonpost.ru/assets/_layouts/', {
+$.post(location.href.replace(location.search, ''), {
 	b: 'TipContent',
 	param: {
 		'type': 'action-main'
