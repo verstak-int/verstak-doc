@@ -21,7 +21,7 @@ $.post(location.href.replace(location.search, ''), {
 Запрос с произвольной страницы делайте на страницу с Полками. Остальное так же:
 
 ```js
-$.post(location.href.replace(location.search, ''), {
+$.post('http://some.samsonpost.ru/assets/_layouts/', {
 	b: 'TipContent',
 	param: {
 		'type': 'action-main'
